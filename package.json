@@ -1,0 +1,35 @@
+{
+  "name": "excalendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "moment": "",
+    "underscore": "*",
+    "jquery": "*",
+    "axios": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0",
+    "gulp": "4.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-nodemon": "*",
+    "lru-cache": "^5.1.1",
+    "natives": "*",
+    "twix": "^1.1.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
+}
