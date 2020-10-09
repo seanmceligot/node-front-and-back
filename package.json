@@ -1,6 +1,6 @@
 {
-  "name": "excalendar",
-  "version": "1.0.0",
+  "name": "node-front-and-back",
+  "version": "0.1.0",
   "description": "",
   "main": "app.js",
   "scripts": {
