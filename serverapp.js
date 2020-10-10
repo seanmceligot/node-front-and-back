@@ -1,4 +1,4 @@
-//const fs = requere('fs');
+const fs = require('fs');
 //const _ = require("underscore");
 const axios = require('axios');
 const common = require('./common.js')
@@ -31,24 +31,16 @@ function makeRequest (url, config, handler, errhandler) {
 function sendRestError(res, error) {
     res.send(JSON.stringify({error:error}));
 }
-function index(res, value) {
- const html = `<html>\n
-  <head>\n
-  <script src="/bundle.js"></script>\n
-  <link rel="stylesheet" href="app.css">\n
-  \n
-  <script>\n
-  </script>\n
-  </head>\n
-  \n
-  <body>\n
-  <h3 id='header'><h3>\n
-  <div id='main'>\n
-  <div id='value'>${value}</div>
-  </div>\n
-  `;
-  res.send(html);
+function index(res) {
+  sendfile("index.html", res);
 }
+function sendfile(filePath, res) {
+  var rs = fs.createReadStream(filePath);
+  console.log('sending '+filePath);
+  rs.pipe(res); 
+}
+
+module.exports.sendfile= sendfile;
 module.exports.send_value= send_value;
 module.exports.makeRequest = makeRequest;
 module.exports.sendRestError = sendRestError;

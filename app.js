@@ -14,7 +14,7 @@ app.get('/', function handleHome(req, res) {
 app.get('/app.css', function handleCss(req, res) {
   console.log(req.baseUrl);
   res.setHeader( 'Content-Type', common.TEXT_CSS);
-  sendfile('app.css', res);
+  serverapp.sendfile('app.css', res);
 });
 app.get('/bundle.js', function handleJs(req, res) {
   console.log(req.baseUrl);
@@ -48,9 +48,4 @@ function send_clientjs(filepath, res, val) {
       res.send(client);
     }
   });
-}
-function sendfile(filePath, res) {
-  var rs = fs.createReadStream(filePath);
-  console.log('sending '+filePath);
-  rs.pipe(res); 
 }

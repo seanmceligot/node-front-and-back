@@ -1,4 +1,6 @@
+#value:hover {
+    text-decoration: underline;
+}
 #value {
     color: green;
-    text-decoration: underline;
 }
