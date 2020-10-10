@@ -47,20 +47,11 @@ function task_client_lint(done) {
         //.pipe(eslint.failOnError());
     done()
 }
-function task_browserifyOLD(done) {
-  browserify({
-            entries: [`${paths.source}/clientapp.js`]
-        })
-            // Bundle it all up!
-            .bundle()
-            // Source the bundle
-					  .pipe(fs.createWriteStream("bundle.js"))
-            // Then write the resulting files to a folder
-            .pipe(gulp.dest(`${paths.build}`))
-    done()
-}
-	
+
 function task_browserify(done) {
+    if(!fs.existsSync(paths.build)) {
+      fs.mkdirSync(paths.build);
+    }   
 		browserify("clientapp.js")
       .transform("babelify", {presets: ["@babel/preset-env"]})
       .bundle()
